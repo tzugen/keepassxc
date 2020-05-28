@@ -35,3 +35,11 @@ install(FILES
         ${CMAKE_CURRENT_BINARY_DIR}/KeePassXC_GettingStarted.html
         ${CMAKE_CURRENT_BINARY_DIR}/KeePassXC_UserGuide.html
     DESTINATION ${DATA_INSTALL_DIR}/docs)
+
+if(APPLE OR UNIX)
+    execute_process(COMMAND ${ASCIIDOCTOR_EXE} -b manpage ${CMAKE_CURRENT_SOURCE_DIR}/man/keepassxc.1.adoc)
+    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/keepassxc.1 DESTINATION ${CMAKE_INSTALL_MANDIR}/man1/)
+
+    execute_process(COMMAND ${ASCIIDOCTOR_EXE} -b manpage ${CMAKE_SOURCE_DIR}/share/docs/man/keepassxc-cli.1.adoc)
+    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/keepassxc-cli.1 DESTINATION ${CMAKE_INSTALL_MANDIR}/man1/)
+endif()
