@@ -1,0 +1,76 @@
+= KeePassXC - Database Operations
+include::.sharedheader[]
+:imagesdir: ../images
+
+// tag::content[]
+== Interface Overview
+=== Application Layout
+The KeePassXC interface is designed for simplicity and easy access to your information. The main database view is split into three main partitions detailed below. You can open multiple databases at the same time, they will appear in tabs.
+
+.Main database interface
+image::main_interface.png[]
+
+*(A) Groups* - Organize your entries into discrete groups to bring order to all of your sensitive information. Groups can be nested under each other to create a heirarchy. Settings from parent groups get applied to their children.
+
+*(B) Entries* - Entries contain all the information for each website or application you are storing in KeePassXC. This view shows all the entries in the selected group. Each column can be resized, reordered, and shown or hidden based on your preference. Right click the header row to see all available options.
+
+*\(C) Preview* - Shows a preview of the selected group or entry. You can temporarily hide this preview using the close button on the right hand side or completely disabled in the application settings.
+
+TIP: Double clicking on the text in the entries list copies that field to the clipboard. Double clicking the entry title will open the entry for editing.
+
+=== Toolbar
+The toolbar provides a quick way to perform common tasks with your database. Some entries in the toolbar are dynamically disabled based on the information contained in the selected entry. Every common action in KeePassXC can be controlled with a keyboard shortcut as well.
+
+.Toolbar overview
+image::toolbar.png[]
+
+*(A) Database* - Open Database, Save Database +
+*(B) Entries* - Create Entry, Edit Selected Entry, Delete Selected Entry +
+*\(C) Entry Data* - Copy Username, Copy Password, Copy URL, Perform Auto-Type +
+*(D) Lock All Databases* +
+*(E) Tools* - Password Generator, Application Settings +
+*(F) Search*
+
+=== Application Settings
+==== Setting the Theme
+KeePassXC ships with light and dark themes specifically designed to meet accessbility standards. In most cases, the appropriate theme for your system will be determined automatically, but you can always set a specific theme in the application settings.
+
+.Setting the theme
+image::theme_selection.png[]
+
+=== Keyboard Shortcuts
+[grid=rows, frame=none, width=75%]
+|===
+|Action                       | Keyboard Shortcut
+
+|Open Database                | Ctrl + O
+|Save Database                | Ctrl + S
+|Save Database As             | Ctrl + Shift + S
+|New Database                 | Ctrl + Shift + N
+|Close Database               | Ctrl + W ; Ctrl + F4
+|Lock All Databases           | Ctrl + L
+|Quit                         | Ctrl + Q
+|New Entry                    | Ctrl + N
+|Edit Entry                   | Enter ; Ctrl + E
+|Delete Entry                 | Delete
+|Clone Entry                  | Ctrl + K
+|Copy Username                | Ctrl + B
+|Copy Password                | Ctrl + C
+|Copy URL                     | Ctrl + U
+|Open URL                     | Ctrl + Shift + U
+|Copy TOTP                    | Ctrl + T
+|Show TOTP                    | Ctrl + Shift + T
+|Trigger AutoType             | Ctrl + Shift + V
+|Add key to SSH Agent         | Ctrl + H
+|Remove key from SSH Agent    | Ctrl + Shift + H
+|Minimize Window              | Ctrl + M
+|Hide Window                  | Ctrl + Shift + M
+|Select Next Database Tab     | Ctrl + Tab ; Ctrl + PageDn
+|Select Previous Database Tab | Ctrl + Shift + Tab ; Ctrl + PageUp
+|Toggle Passwords Hidden      | Ctrl + Shift + C
+|Toggle Usernames Hidden      | Ctrl + Shift + B
+|Focus Search                 | Ctrl + F
+|Clear Search                 | Escape
+|Show Keyboard Shortcuts      | Ctrl + /
+|===
+// end::content[]

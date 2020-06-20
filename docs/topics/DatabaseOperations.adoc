@@ -1,0 +1,160 @@
+= KeePassXC - Database Operations
+include::.sharedheader[]
+:imagesdir: ../images
+
+// tag::content[]
+== Database Operations
+=== Creating Your First Database
+To start using KeePassXC, you need to first create a database that will store the password and other details.
+
+To create a database, perform the following steps:
+
+1. Open your KeePassXC application. Click the create new database button *(A)*:
++
+.Create database - Welcome screen
+image::welcome_screen.png[]
+
+2. The database creation wizard appears. Enter the desired database name and a short description (optional):
++
+.Create database - General information
+image::new_db_wizard_1.png[,80%]
+
+3. Click Continue. The Encryption Settings screen appears, we don't recommend making any changes besides increasing or decreasing the decryption time using the slider. Setting the Decryption Time slider at a higher values means that the database will have higher level of protection but the time taken by the database to open will increase.
++
+.Create database - Encryption settings
+image::new_db_wizard_2.png[,80%]
+
+4. Click the Continue button. The Database Master Key screen appears, enter your desired master password. We recommend using a long, randomized password.
++
+.Create database - Enter master key
+image::new_db_wizard_3.png[,80%]
++
+*(A)* Open the password generator +
+*(B)* Toggle password visibility
++
+NOTE: Keep this password for your database safe. Either memorize it or note it down somewhere. Losing the database password might result in permanent locking of your database and you will not be able to retrieve information stored in the database.
+
+5. Click Done. You will be prompted to select a location to save your database file. The database file is saved on to your computer with the default `.kdbx` extension. You can store your database wherever you wish, it is fully encrypted at all times preventing unauthorized access.
+
+=== Opening an Existing Database
+To open an existing database, perform the following steps:
+
+1. Open your KeePassXC application. Click the Open existing database button *(A)* or select a recent database from the Recent Databases list *(B)*.
++
+.Open an existing database
+image::open_database.png[]
+
+2. Navigate to the location of the your database on your computer and open the database file. The database unlock screen will appear:
++
+.Database unlock screen
+image::unlock_database.png[]
+
+3. Enter the password for your database.
+
+4. _(Optional)_ Browse for the Key File if you have chosen it as an additional authentication factor while creating the database. Refer to the KeePassXC User Guide for more information on setting a Key File as an additional authentication factor.
+
+5. Click *OK*. The database opens and the following screen is displayed:
++
+.Unlocked database
+image::database_view.png[]
+
+=== Adding an Entry
+All the details such as usernames, passwords, URLs, attachments, notes, and so on are stored in database entries. You can create as many entries as you want in the database.
+
+To add an entry, perform the following step:
+
+1. Navigate to Entries > New Entry (Or, press Ctrl+N). The following screen appears:
++
+.Adding a new entry
+image::edit_entry.png[]
+
+2. Enter a desired title for the entry, username, password, URL, and notes on this screen.
+
+3. _(Optional)_ Select the Expires check-box to set the expiry date for the password. You can manually enter the date and time or click the Presets button to select a expiry date and time for your password.
+
+4. Click *OK* to add the entry to your database.
+
+=== Editing an Entry
+To edit the details in an entry, perform the following steps:
+
+1. Select the entry you want to edit.
+
+2. Press `Enter`, click the edit toolbar icon, or right-click and select Edit Entry from the menu.
+
+3. Make the desired changes.
+
+4. Click *OK*.
+
+=== Deleting an Entry
+To delete an entry, perform the following steps:
+
+1. Select the entry you want to delete and press the `Delete` button on your keyboard.
+
+2. You will be prompted to move the entry to the Recycle Bin (if enabled).
++
+NOTE: You can disable the recycle bin within the Database Settings. If the recyle bin is disabled then deleted entries will be permantently removed from the database.
+
+3. To permanently delete the entry, navigate to the Recycle Bin, select the entry you want to delete and press the `Delete` button on your keyboard.
+
+// tag::advanced[]
+== Searching the Database
+KeePassXC provides an enhanced and granular search features the enables you to search for specific entries in the databases using the different modifiers, wild card characters, and logical operators.
+
+=== Modifiers and Fields
+[grid=rows, frame=none, width=70%]
+|===
+|Modifier   |Description
+
+|-	        |Exclude this term from results
+|+	        |Match this term exactly
+|*	        |Term is handled as a regular expression
+|===
+
+The following fields can be searched along with their abbreviated name in parenthesis:
+
+* Title (t)
+* Username (u)
+* Password (p, pw)
+* URL
+* Notes (n)
+* Attribute (attr)
+* Attachment (attach)
+* Group (g)
+
+=== Wild Card Characters and Logical Operators
+[grid=rows, frame=none, width=70%]
+|===
+|Wild Card Character    |Description
+
+|*	                    |Match anything
+|?	                    |Match one character
+|\|	                    |Logical OR
+|===
+
+=== Sample Search Queries
+The following tables lists a few samples search queries for your reference:
+
+|===
+|Query	        |Description
+
+|`user:johnsmith url:www.americanexpress.com`
+|Searches the Username field for johnsmith and the URL field for www.americanexpress.com.
+
+|`user:john\|smith`
+|Searches the Username field for john OR smith.
+
+|`+user:johnsmith -url:www.google.com *notes:"secret note \d"`
+|Search the username field for exactly johnsmith, the URL must not contain www.google.com, and notes contains secret note [digit].
+|===
+// end::advanced[]
+
+== Storing a Database File
+The database file that you create might contain highly sensitive data and must be stored in a very secure way. You must make sure that the database is always protected with a strong and long password. The database file that is protected with a strong and long password is secure and encrypted while stored on your computer or cloud storage service.
+
+Make sure that the database file is stored in a folder that is secure. Make sure that you or someone else does not accidentally delete the database file. Deletion of the database file will result in the total loss of your information and a lot of inconvenience to manually retrieve your logins for  various web applications. You must not share your database file with anyone unless absolutely necessary.
+
+==  Backing up a Database File
+It is a good practice to create copies of your database file and store the copies of your database on different computer, smart phone, or cloud storage space such a Google Drive or Microsoft OneDrive.
+
+Creating backups for your database give you a peace of mind should you lose one copy of your database. You can quickly retrieve the copy of your database and start using it.
+// end::content[]
