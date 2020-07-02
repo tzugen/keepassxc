@@ -99,7 +99,23 @@ setupBrave() {
 
 setupTorBrowser() {
     buildJson "firefox"
-    INSTALL_DIR="${BASE_DIR}/.tor-browser/app/Browser/TorBrowser/Data/Browser/.mozilla/native-messaging-hosts"
+
+    # ---------------------------
+    # TorBrowser is most commonly installed through the Torbrowser Launcher
+    # tool. This tool downloads a .tar.gz package and installs it in a directory
+    # inside the users $HOME. 
+    # The path varies by system and locale, so we need to find it..
+    # ---------------------------
+    
+    # The TorBrowser Launcher script uses $XDG_DATA_HOME.
+    # Use it as well, or use ~/.local/share as the fallback
+    XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+    
+    # Find the second level dir (folder names vary based on locale)
+    for TBB_BASE in ${XDG_DATA_HOME}/torbrowser/tbb/*/*
+    do
+        INSTALL_DIR="${TBB_BASE}/Browser/TorBrowser/Data/Browser/.mozilla/native-messaging-hosts"
+    done
 }
 
 # --------------------------------
